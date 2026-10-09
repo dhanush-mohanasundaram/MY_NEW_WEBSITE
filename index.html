@@ -41,10 +41,11 @@ ul{list-style:none;}
 #pcv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.45;}
 
 /* ─── NAV ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;
-  background:rgba(255,255,255,0.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);padding:0 5%;
-  display:flex;align-items:center;justify-content:space-between;}
+nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:68px;
+  background:#ffffff;
+  border-bottom:2px solid #E2E6EF;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 16px rgba(0,0,0,0.08);}
 .nav-logo{display:flex;align-items:center;gap:10px;}
 .nav-mark{width:36px;height:36px;border-radius:8px;
   background:linear-gradient(135deg,var(--blue),var(--accent));
@@ -84,8 +85,9 @@ section{position:relative;z-index:1;}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);
   box-shadow:var(--shadow);transition:box-shadow .3s,transform .3s,border-color .3s;}
 .card:hover{box-shadow:var(--shadow-hover);border-color:#93C5FD;transform:translateY(-4px);}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
-.reveal.visible{opacity:1;transform:none;}
+.reveal{opacity:1;transform:none;}
+.reveal.anim{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.anim.visible{opacity:1;transform:none;}
 .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
 
 /* ─── BUTTONS ─── */
@@ -990,8 +992,8 @@ footer{background:#0A0F1E;padding:56px 5% 36px;}
 })();
 
 /* SCROLL REVEAL */
-const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');}),{threshold:.05,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('anim');obs.observe(el);});
 
 /* ACTIVE NAV */
 const secs=document.querySelectorAll('section[id]');
