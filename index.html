@@ -38,40 +38,41 @@ ul{list-style:none;}
 ::-webkit-scrollbar-thumb{background:var(--blue2);border-radius:3px;}
 
 /* ─── CANVAS ─── */
-#pcv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.45;}
+#pcv{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;opacity:0.35;}
 
 /* ─── NAV ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:9999;height:68px;
-  background:#ffffff;
-  border-bottom:2px solid #E2E6EF;padding:0 5%;
+nav{position:fixed;top:0;left:0;right:0;z-index:99999;height:68px;
+  background:#ffffff !important;
+  border-bottom:2px solid #1D4ED8;padding:0 5%;
   display:flex;align-items:center;justify-content:space-between;
-  box-shadow:0 2px 16px rgba(0,0,0,0.08);}
+  box-shadow:0 4px 20px rgba(0,0,0,0.1);}
 .nav-logo{display:flex;align-items:center;gap:10px;}
 .nav-mark{width:36px;height:36px;border-radius:8px;
-  background:linear-gradient(135deg,var(--blue),var(--accent));
+  background:linear-gradient(135deg,#1D4ED8,#0EA5E9);
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-weight:600;font-size:14px;color:#fff;}
-.nav-name{font-weight:700;font-size:15px;color:var(--dark);}
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:#fff;
+  flex-shrink:0;}
+.nav-name{font-weight:700;font-size:15px;color:#0A0F1E;}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
-.nav-links a{font-size:13.5px;font-weight:500;color:var(--muted);padding:6px 12px;
-  border-radius:6px;transition:color .2s,background .2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--blue);background:var(--blue-pale);}
-.nav-cta{margin-left:8px;background:var(--blue);color:#fff;padding:9px 20px;
-  border-radius:8px;font-size:13.5px;font-weight:600;transition:background .2s,transform .2s;}
-.nav-cta:hover{background:#1e40af;transform:translateY(-1px);}
+.nav-links a{font-size:13px;font-weight:500;color:#374151;padding:6px 10px;
+  border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:#1D4ED8;background:#EFF6FF;}
+.nav-cta{margin-left:8px;background:#1D4ED8 !important;color:#fff !important;
+  padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;
+  transition:background .2s;white-space:nowrap;}
+.nav-cta:hover{background:#1e40af !important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;
   background:none;border:none;padding:4px;}
-.hamburger span{width:24px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s;}
+.hamburger span{width:24px;height:2px;background:#0A0F1E;border-radius:2px;transition:all .3s;}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;
-  background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);padding:20px 5% 28px;
-  flex-direction:column;gap:4px;z-index:999;}
+.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;z-index:99998;
+  background:#fff;border-bottom:1px solid #E2E6EF;
+  padding:20px 5% 28px;flex-direction:column;gap:4px;}
 .mob-menu.open{display:flex;}
-.mob-menu a{font-size:15px;font-weight:500;color:var(--body);padding:12px 0;
-  border-bottom:1px solid var(--light);}
+.mob-menu a{font-size:15px;font-weight:500;color:#374151;padding:12px 0;
+  border-bottom:1px solid #F1F3F8;}
 .mob-menu a:last-child{border-bottom:none;}
 
 /* ─── UTILS ─── */
@@ -108,7 +109,9 @@ section{position:relative;z-index:1;}
    HERO
 ───────────────────────────────────────────── */
 #hero{background:linear-gradient(145deg,#EFF6FF 0%,#DBEAFE 50%,#F8F9FC 100%);
-  min-height:100vh;display:flex;align-items:center;padding-top:68px;overflow:hidden;}
+  min-height:100vh;display:flex;align-items:center;
+  padding-top:68px;overflow:hidden;
+  position:relative;z-index:1;}
 .hero-wrap{display:grid;grid-template-columns:45fr 55fr;gap:56px;
   align-items:center;padding:80px 5%;max-width:1280px;margin:0 auto;width:100%;}
 .hero-card{background:#fff;border:1px solid var(--border);border-radius:22px;
